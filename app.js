@@ -9,10 +9,10 @@ const Quote = require('./models/Quote');
 const jwt = require('jsonwebtoken');
 const authRoutes = require('./routes/authRoutes');
 const { requireAuth, checkUser } = require('./middleware/authMiddleware');
-require('dotenv/config')
+const dotenv = require('dotenv')
 
+dotenv.config();
 const app = express();
-
 // database URI:
 const dbURI = `mongodb+srv://${process.env.DATABASE_NAME}:${process.env.DATABASE_PASSWORD}@cluster0.ynyof5x.mongodb.net/tecbookforum?retryWrites=true&w=majority`;
 
@@ -25,13 +25,14 @@ mongoose.connect(dbURI, {
 }).then((result) => {
   console.log("Connected to the database successfully!");
   // listening on port as a server:
-  const port = 5500;
-  app.listen(port, '127.0.0.1', () => {
+  const port = 80;
+  app.listen(port, () => {
     console.log(`The app listening on port ${port}!`);
   });
 
   // failed connection to the database: 
 }).catch((err) => {
+  console.log(err)
   console.log("Error in connecting to database!");
 })
 
