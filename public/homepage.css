@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Serif', serif;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 13vh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(1, 29, 58);
+  color: #fff;
+  justify-content: space-between;
+}
+
+.header__title {
+  font-size: 1.3rem;
+  text-align: left;
+  margin-left: 1rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.2rem;
+  color: skyblue;
+}
+
+.lead {
+  font-size: 0.85rem;
+  margin-bottom: 4rem;
+  margin-left: 3.5rem;
+  color: skyblue;
+}
+
+button {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  color: #fff;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  backdrop-filter: blur(5px);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.header__buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+button:hover {
+  background-color: azure;
+  color: skyblue;
+}
+
+.about-page {
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 150px;
+}
+
+.about-page h1 {
+  font-size: 50px;
+  color: rgba(1, 29, 58)
+}
+
+.about {
+  font-size: 18px;
+  justify-content: center;
+  margin: 20px;
+}
+
+.join-invitation {
+  font-size: 30px;
+  text-align: center;
+  font-style: italic;
+}
+
+
+
+.create-quote {
+  margin-top: 150px;
+}
+
+.create-quote-header {
+  text-align: center;
+  text-shadow: lightskyblue;
+}
+
+.create-quote form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.create-quote input,
+.create-quote textarea {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+  border-radius: 0.5rem;
+}
+
+.create-quote label {
+  display: block;
+  margin-top: 24px;
+  border-radius: 0.5rem;
+}
+
+textarea {
+  height: 120px;
+  border-radius: 0.5rem;
+}
+
+.create-quote button {
+  background-color: rgba(1, 29, 58);
+  border: none;
+  color: #fff;
+  font-size: 0.75rem;
+  margin-top: 0.8rem;
+  margin-left: 18rem;
+  padding: 0.5rem 1rem;
+  backdrop-filter: blur(5px);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.create-quote button:hover {
+  background-color: azure;
+  color: skyblue;
+}
+
+
+.my-profile h2 {
+  color: rgba(1, 29, 58);
+  margin-top: 150px;
+}
+
+.my-profile {
+  margin-top: 50px;
+  margin-left: 200px;
+}
+
+.no-quotes-container {
+  margin-left: 100px;
+  margin-top: 150px;
+  font-size: 20px;
+  color: rgba(1, 29, 58);
+}
+
+.my-quotes-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quotes-content {
+  margin-top: 120px;
+  width: 100%;
+}
+
+.quote-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: lightskyblue;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.bookTitle {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.author {
+  font-style: italic;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.quoteContent {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.pageNumber {
+  font-size: 18px;
+  color: #555;
+}
+
+.quote-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 20px;
+}
+
+.edit,
+.delete {
+  background-color: rgba(1, 29, 58, 0.8);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.edit:hover,
+.delete:hover {
+  background-color: rgba(1, 29, 58, 1);
+  color: skyblue;
+}
+
+a {
+  text-decoration: none;
+}

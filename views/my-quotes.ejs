@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Quotes</title>
+  <link rel="stylesheet" href="/homepage.css" />
+</head>
+
+<body>
+  <section class="header">
+    <div class="header__container">
+      <h1 class="header__title">Welcome to our platform: TEC-BookForum!</h1>
+      <div class="header__buttons">
+        <form method="GET" action="/my-quotes">
+          <button type="submit">My Quotes</button>
+        </form>
+        <form method="GET" action="/my-quotes/create">
+          <button type="submit">Add Quote</button>
+        </form>
+        <form method="GET" action="/about">
+          <button type="submit">Who are we?</button>
+        </form>
+        <form method="GET" action="/logout">
+          <button type="submit">Log out</button>
+        </form>
+
+      </div>
+    </div>
+    <p class="lead">
+      <strong>“You can get lost in any library, no matter the size. But the more
+        lost you are, the more things you'll find... ”</strong>
+      <em> - Millie Florence, Lydia Green of Mulberry Glen</em>
+    </p>
+  </section>
+  <section class="my-quotes-main">
+    <div class="quotes-content">
+      <% if (quotes.length> 0) { %>
+        <% quotes.forEach(quote=> { %>
+
+          <div class="quote-content">
+            <h3 class="bookTitle">
+              <%= quote.bookTitle %>
+            </h3>
+            <h2 class="author">
+              <%= quote.author %>
+            </h2>
+            <p class="quoteContent">
+              "<%= quote.quoteContent %>"
+            </p>
+            <p class="pageNumber">
+              Page number: <%= quote.pageNumber %>
+            </p>
+            <div class="quote-buttons">
+              <a class="delete" data-doc="<%= quote._id %>"> Delete </a>
+            </div>
+          </div>
+    </div>
+    <% }) %>
+      <% } else { %>
+        <div class="no-quotes-container">
+          <p class="no-quotes"> There are no blogs to display..</p>
+          <p class="no-quotes"> Click on the <strong>"Add Quote"</strong> button above and note down your first
+            favorite quote!
+          </p>
+        </div>
+        <% } %>
+  </section>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    const trashcan = document.querySelector('a.delete');
+    trashcan.addEventListener('click', (err) => {
+      const endpoint = `/my-quotes/${trashcan.dataset.doc}`;
+      fetch(endpoint, {
+        method: 'DELETE'
+      }).then((response) => response.json()).then((data) => window.location.href = data.redirect).catch(err => console.log(err))
+    })
+  </script>
+</body>
+
+</html>

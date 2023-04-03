@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/homepage.css" />
+  <title>New Quote</title>
+</head>
+
+<body>
+  <section class="header">
+    <div class="header__container">
+      <h1 class="header__title">Welcome to our platform: TEC-BookForum!</h1>
+      <div class="header__buttons">
+        <form method="GET" action="/my-quotes">
+          <button type="submit">My Quotes</button>
+        </form>
+        <form method="GET" action="/my-quotes/create">
+          <button type="submit">Add Quote</button>
+        </form>
+        <form method="GET" action="/about">
+          <button type="submit">Who are we?</button>
+        </form>
+        <form method="GET" action="/logout">
+          <button type="submit">Log out</button>
+        </form>
+      </div>
+    </div>
+    <p class="lead">
+      <strong>“You can get lost in any library, no matter the size. But the more
+        lost you are, the more things you'll find... ”</strong>
+      <em> - Millie Florence, Lydia Green of Mulberry Glen</em>
+    </p>
+  </section>
+  <div class="create-quote content">
+    <h1 class="create-quote-header">Create a new quote</h1>
+    <form action="/my-quotes/create" method="POST">
+      <label for="bookTitle">Book Title:</label>
+      <input type="text" id="bookTitle" name="bookTitle" required>
+      <label for="author">Author:</label>
+      <input type="text" id="author" name="author" required>
+      <label for="quoteContent">Quote</label>
+      <textarea id="quoteContent" name="quoteContent" required></textarea>
+      <label for="pageNumber">Page Number:</label>
+      <input type="number" id="pagenumber" name="pageNumber" required>
+      <button type="submit">Add Quote</button>
+    </form>
+  </div>
+</body>
+
+</html>

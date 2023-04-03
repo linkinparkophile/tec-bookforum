@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <section>
+    <div class="form-box-signup">
+      <div class="form-value">
+        <form action="/register" method="POST">
+          <h2>Register</h2>
+
+          <div class="inputbox">
+            <ion-icon name="mail-outline"></ion-icon>
+            <input type="email" name="email" required />
+            <label for="">Email</label>
+          </div>
+
+          <div class="email error"></div>
+
+          <div class="inputbox">
+            <ion-icon name="person-outline"></ion-icon>
+            <input type="username" name="username" required />
+            <label for="">Username</label>
+          </div>
+
+          <div class="username error"></div>
+
+          <div class="inputbox">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input type="password" name="password" required />
+            <label for="">Password</label>
+          </div>
+
+          <div class="password error"></div>
+
+          <button type="submit">Register</button>
+
+          <div class="login">
+            <p>Already have an account? <a href="/login">Login</a></p>
+            <a href="/" class="login__back"> Back </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    const form = document.querySelector('form');
+    const emailError = document.querySelector('.email.error');
+    const usernameError = document.querySelector('.username.error');
+    const passwordError = document.querySelector('.password.error');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // reset errors
+      emailError.textContent = '';
+      usernameError.textContent = '';
+      passwordError.textContent = '';
+
+      // get values
+      const email = form.email.value;
+      const username = form.username.value;
+      const password = form.password.value;
+
+      try {
+        const res = await fetch('/register', {
+          method: 'POST',
+          body: JSON.stringify({ email, username, password }),
+          headers: { 'Content-Type': 'application/json' }
+        });
+
+        const data = await res.json();
+
+        console.log(data);
+
+        if (data.errors) {
+          emailError.textContent = data.errors.email;
+          usernameError.textContent = data.errors.username;
+          passwordError.textContent = data.errors.password;
+        }
+
+        if (data.user) {
+          location.assign('/login');
+        }
+      }
+      catch (err) {
+        console.log(err);
+      }
+    });
+  </script>
+</body>
+
+</html>
